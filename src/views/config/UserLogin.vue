@@ -38,13 +38,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .login {
   width: 100vw;
   height: 100vh;
-  // background-image: url('@/assets/bg.jpg');
-  // background-size: 100% 100%;
-  // background-repeat: no-repeat;
   background: #2c3e50;
   /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #3498db, #2c3e50);
@@ -54,17 +51,18 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
 
-  &-box {
-    width: 400px;
-    height: 400px;
-    padding: 24px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-  }
-}</style>
+.login-box {
+  width: 400px;
+  height: 400px;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+</style>
