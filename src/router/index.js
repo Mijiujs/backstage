@@ -25,6 +25,16 @@ const router = new Router({
         title: '登录页'
       }
     },
+
+
+    // {
+    //   path: '/Test',
+    //   name: "Test",
+    //   component: () => import(/* webpackChunkName: "UserList" */ '@/views/user/Test'), // 路由懒加载
+    //   meta: {
+    //     title: '登录页'
+    //   }
+    // },
   ],
 });
 

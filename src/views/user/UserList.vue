@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <h1>用户列表页面</h1>
@@ -57,12 +58,41 @@
     </el-option>
   </el-select>
 
-
+<el-row>
     <el-button type="success" class="btn1">查询</el-button>
     <el-button type="danger">重置</el-button>
+</el-row>
 
+<el-table
+      :data="userdata"
+      style="width: 100%">
+      <el-table-column
+        prop="name"
+        label="姓名">
+      </el-table-column>
+      <el-table-column
+        prop="age"
+        label="年龄"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="id"
+        label="用户ID"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="phone"
+        label="电话号码">
+      </el-table-column>
+    </el-table>
 
+<!-- <button @click.once="count++">计数{{ count }}</button>
+<button @click="greet('abc',$event)">提交</button> -->
 </div>
+
+
+
+
 </template>
 
 <!-- <template v-show="btn">
@@ -77,7 +107,12 @@
   
 </template> -->
 
+
+
 <script>
+import axios from 'axios';
+axios.defaults.baseURL = 'https://mock.apifox.cn';
+
 export default {
   directives: {},
   filters: {},
@@ -122,11 +157,18 @@ export default {
         }],
         value: '',
 
-    userList: [
-    {id: 'cph',sex: '男',age: 23,phonenum: '19143509817'},
-    {id: 'phc',sex: '男',age: 30,phonenum: '19999999999'},
-    {id: 'hpc',sex: '男',age: 18,phonenum: '19888888888'}
-  ]
+  //   userList: [
+  //   {id: 'cph',sex: '男',age: 23,phonenum: '19143509817'},
+  //   {id: 'phc',sex: '男',age: 30,phonenum: '19999999999'},
+  //   {id: 'hpc',sex: '男',age: 18,phonenum: '19888888888'}
+  // ],
+
+
+
+
+
+  // count:0,
+        userdata:[],
     };
   },
   computed: {},
@@ -134,7 +176,9 @@ export default {
   beforeCreate() {},
   created() {},
   beforeMount() {},
-  mounted() {},
+  mounted() {
+    this.getUserdata();
+  },
   beforeUpdate() {},
   updated() {},
   activated() {},
@@ -148,7 +192,23 @@ export default {
         },
         click2: function(){
           console.log('我是子级div');
-        }
+        },
+
+
+        // greet:function(str,e){
+        //   alert(str);
+        //   console.log(e);
+        // }
+
+   getUserdata(){
+   
+    this.axios.get('/m1/2631009-0-default/test/user/list').then((response) => {
+      this.userdata=response.data.data;
+    }).catch((response)=>{
+      console.log(response);
+    })
+   }
+
   }
   }
 
@@ -166,4 +226,8 @@ export default {
 
 /* .el-row{margin-left: 20px;} */
 .btn1{margin-left: 15px;}
+
+.el-row{display: inline-block;}
+
+
 </style>
