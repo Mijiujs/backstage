@@ -68,7 +68,8 @@
       style="width: 100%">
       <el-table-column
         prop="name"
-        label="姓名">
+        label="姓名"
+        >
       </el-table-column>
       <el-table-column
         prop="age"
@@ -110,8 +111,7 @@
 
 
 <script>
-import axios from 'axios';
-axios.defaults.baseURL = 'https://mock.apifox.cn';
+
 
 export default {
   directives: {},
@@ -202,8 +202,10 @@ export default {
 
    getUserdata(){
    
-    this.axios.get('/m1/2631009-0-default/test/user/list').then((response) => {
-      this.userdata=response.data.data;
+    this.$axios.get('/m1/2631009-0-default/test/user/list').then((response) => {
+      console.log(response.data.entry);
+      this.userdata=response.data.entry;
+      
     }).catch((response)=>{
       console.log(response);
     })
