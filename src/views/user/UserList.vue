@@ -110,9 +110,6 @@
 
 
 <script>
-import axios from 'axios';
-axios.defaults.baseURL = 'https://mock.apifox.cn';
-
 export default {
   directives: {},
   filters: {},
@@ -201,8 +198,8 @@ export default {
         // }
 
    getUserdata(){
-   
-    this.axios.get('/m1/2631009-0-default/test/user/list').then((response) => {
+
+    this.$axios.get('/m1/2631009-0-default/test/user/list').then((response) => {
       this.userdata=response.data.data;
     }).catch((response)=>{
       console.log(response);
