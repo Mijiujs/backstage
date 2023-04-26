@@ -28,7 +28,9 @@ Vue.use(TableColumn)
 
 Vue.prototype.$axios = axios;
 
+
 axios.defaults.baseURL = 'https://mock.apifox.cn';
+
 new Vue({
   render: h => h(App),
   router
