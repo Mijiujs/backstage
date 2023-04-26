@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Button,Row,Input,Select,Option,Container,Header,Main,Table,TableColumn} from 'element-ui';
+import { Button,Row,Input,Select,Option,Container,Header,Main,Table,TableColumn,Tag} from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios';
 import App from './App.vue';
@@ -26,10 +26,14 @@ Vue.use(Table)
 
 Vue.use(TableColumn)
 
+Vue.use(Tag)
+
 Vue.prototype.$axios = axios;
 
 
-axios.defaults.baseURL = 'https://mock.apifox.cn';
+// axios.defaults.baseURL = 'https://mock.apifox.cn';// 米酒的云端mock数据
+
+axios.defaults.baseURL = 'http://iwenwiki.com';
 
 new Vue({
   render: h => h(App),

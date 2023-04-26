@@ -2,7 +2,8 @@
   <div class="login">
     <div class="login-box">
       <h1>登录弹窗</h1>
-      <el-button @click="handleLogin">登录</el-button>
+      <!-- <el-button @click="handleLogin">登录</el-button> -->
+      <el-button @click="toHome">登录</el-button>
     </div>
   </div>
 </template>
@@ -32,6 +33,12 @@ export default {
     handleLogin() {
       this.$router.push({
         path: '/UserList'
+      })
+    },
+
+    toHome() {
+      this.$router.push({
+        path:'/home'
       })
     }
   }
