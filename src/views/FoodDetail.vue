@@ -58,9 +58,9 @@ mounted(){
 methods:{
 
   getFoodList(){
-    this.$axios.get('/api/foods/list?city=北京&page=1').then((res) => {
-    console.log(res);
-    this.foodlist = res.data.result;
+    this.$axios.get('/m1/2657709-0-default/api/foods/list').then((res) => {
+    console.log(res.data.data.result);
+    this.foodlist = res.data.data.result;
 
   }).catch((err) => {
     console.log(err);

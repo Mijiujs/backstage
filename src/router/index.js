@@ -35,7 +35,13 @@ const router = new Router({
           path:'food',
           name:"food",
           component: () => import('../views/FoodDetail.vue')
-        }
+        },
+
+        {
+          path:'userdata',
+          name:"userdata",
+          component: () => import('../views/UserDataCollect.vue')
+        },
       ]
     },
 

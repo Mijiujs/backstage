@@ -6,7 +6,7 @@ module.exports = defineConfig({
   devServer:{
     proxy:{
       '/api':{
-        target: 'https://iwenwiki.com',
+        target: 'http://localhost:3000',
         changeOrigin: true
       }
     }

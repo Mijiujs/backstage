@@ -202,12 +202,12 @@ export default {
 
    getUserdata(){
    
-    this.$axios.get('/m1/2631009-0-default/test/user/list').then((response) => {
+    this.$axios.get('https://mock.apifox.cn/m1/2631009-0-default/test/user/list').then((response) => {
       console.log(response.data.entry);
       this.userdata=response.data.entry;
       
-    }).catch((response)=>{
-      console.log(response);
+    }).catch((err)=>{
+      console.log(err);
     })
    }
 

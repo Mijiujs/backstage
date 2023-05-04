@@ -4,7 +4,7 @@
             <el-header>导航</el-header>
             <el-main>
                 <el-tag><router-link to="/home/food">食品详情</router-link></el-tag>
-                <el-tag type="success">标签二</el-tag>
+                <el-tag type="success"><router-link to="/home/userdata">用户数据采集</router-link></el-tag>
                 <el-tag type="info">标签三</el-tag>
                 <el-tag type="warning">标签四</el-tag>
                 <el-tag type="danger">标签五</el-tag>
