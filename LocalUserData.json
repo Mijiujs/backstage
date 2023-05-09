@@ -1,13 +1,13 @@
 {
   "posts": [
     {
-      
+      "id": 1,
+      "age": "23",
+      "sex": "男"
     }
   ],
   "comments": [
-    {
-
-    }
+    {}
   ],
   "profile": {
     "name": "typicode"

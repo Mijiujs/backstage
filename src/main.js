@@ -33,7 +33,7 @@ Vue.prototype.$axios = axios;
 
 // axios.defaults.baseURL = 'https://mock.apifox.cn';// 米酒的云端mock数据
 
-// axios.defaults.baseURL = '';
+// axios.defaults.baseURL = 'https://mock.apifox.cn';
 
 new Vue({
   render: h => h(App),

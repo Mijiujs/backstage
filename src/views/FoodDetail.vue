@@ -58,7 +58,7 @@ mounted(){
 methods:{
 
   getFoodList(){
-    this.$axios.get('/m1/2657709-0-default/api/foods/list').then((res) => {
+    this.$axios.get('https://mock.apifox.cn/m1/2657709-0-default/api/foods/list').then((res) => {
     console.log(res.data.data.result);
     this.foodlist = res.data.data.result;
 
