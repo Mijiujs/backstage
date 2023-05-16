@@ -157,7 +157,7 @@ export default{
                 // if((character === '+' || character ===  '-' || character ===  '/' || character ===  '*') && this.isOperatorAdded){
                     
                 //     return;
-                // }
+                // }  
 
                 // if(character === '+' || character ===  '-' || character ===  '/' || character ===  '*'){
                 //  this.isOperatorAdded = true; 
