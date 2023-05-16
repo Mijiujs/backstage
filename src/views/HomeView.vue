@@ -5,7 +5,7 @@
             <el-main>
                 <el-tag><router-link to="/home/food">食品详情</router-link></el-tag>
                 <el-tag type="success"><router-link to="/home/userdata">用户数据采集</router-link></el-tag>
-                <el-tag type="info">标签三</el-tag>
+                <el-tag type="info"><router-link to="/home/myCalculator">计算器</router-link></el-tag>
                 <el-tag type="warning">标签四</el-tag>
                 <el-tag type="danger">标签五</el-tag>
             </el-main>

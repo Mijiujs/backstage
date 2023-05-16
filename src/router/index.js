@@ -42,6 +42,12 @@ const router = new Router({
           name:"userdata",
           component: () => import('../views/UserDataCollect.vue')
         },
+
+        {
+          path:'myCalculator',
+          name:'myCalculator',
+          component: () => import('../views/myCalculator.vue')
+        }
       ]
     },
 
