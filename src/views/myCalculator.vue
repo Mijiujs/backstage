@@ -32,7 +32,7 @@
                     <span class="backspace" @click="backSpace">BK</span>
                     <span class="zero" @click="inputAct(0)">0</span> 
                     <span class="dot" @click="inputAct('.')">.</span>
-                    <span class="equal" >=</span>
+                    <span class="equal" @click="calculate">=</span>
                 </div>
             </div>
        
@@ -171,21 +171,124 @@ export default{
         
     },
 
+    calculate(){
+    //     const regexNum = /\d+(\.\d+)?/g;
+    //     const stack = this.input.match(regexNum);
+    //     for(let i = 0; i < stack.length; i++){
+    //         stack[i] = parseFloat(stack[i]);
+    //     }
+    //     console.log(stack);
+
+    //     const regex = /[+\-*/]|\d+(\.\d+)?/g;
+    //     const Number = this.input.match(regex);
+    //     console.log(Number);
+    //     for(let i = 0; i < Number.length; i++){
+    //         const char = Number[i];
+    //         // console.log(char);
+            
+    //         if(isNaN(char)){
+    //             // console.log(typeof(char));
+    //             // stack.push(parseFloat(char));
+    //             // // console.log(stack);
+    //             const b = stack.pop();
+    //             console.log('b是:' + b);
+    //             const a = stack.pop();
+    //             console.log('a是:' + a);
+    //             switch(char){
+    //                 case '+':
+    //                     stack.push(a + b);
+    //                     break;
+
+    //                 case '-':
+    //                     stack.push(a - b);
+    //                     break;
+                    
+    //                 case '*':
+    //                     stack.push(a * b);
+    //                     break;
+
+    //                 case '/':
+    //                     stack.push(a / b);
+    //                     break;
+    //         }
+    //         }
+    //     }
+    //     console.log(stack);
+    //     this.input = stack.pop();
+    // }
 
 
-        // getEqual(){
-        //     const regex = /[* \- + /]/;
-        //     let tmp ;
-        //     // let plusNum;
+        const regexNum = /\d+(\.\d+)?/g;
+        const stack = this.input.match(regexNum);
 
-        //     if(regex.test(this.input)){
-        //         tmp = this.input.split("+");
-        //         console.log(tmp);
-        //         // plusNum = parseFloat(tmp[0]);
-        //         console.log(tmp);
-        //     }
-        // }
+        for(let i = 0; i < stack.length; i++){
+
+            stack[i] = parseFloat(stack[i]);
+
+        }
+        
+        const regex = /[+\-*/]/g;
+        const Operator = this.input.match(regex);
+
+        for(let i = 0; i < Operator.length; i++){
+
+            if(Operator[i+1] !== undefined && (Operator[i] === '+' || Operator[i] === '-') && (Operator[i+1] === '*' || Operator[i+1] === '/')){
+
+                if(Operator[i] === '+' && Operator[i+1] === '*'){
+                    const a = stack.shift();
+                    const b = stack.shift();
+                    const c = stack.shift();
+                    stack.unshift(a + (b * c));
+                    i++;
+                }else if(Operator[i] === '-' && Operator[i+1] === '*'){
+                    const a = stack.shift();
+                    const b = stack.shift();
+                    const c = stack.shift();
+                    stack.unshift(a - (b * c));
+                    i++;
+                }else if(Operator[i] === '+' && Operator[i+1] === '/'){
+                    const a = stack.shift();
+                    const b = stack.shift();
+                    const c = stack.shift();      
+                    stack.unshift(a + (b / c));
+                    i++;
+                }else{
+                    const a = stack.shift();
+                    const b = stack.shift();
+                    const c = stack.shift();
+                    stack.unshift(a - (b / c));
+                    console.log(stack);
+                    i++;
+                }
+            }else{
+                if(Operator[i] === '*'){
+                    const a = stack.shift();
+                    const b = stack.shift();
+
+                    stack.unshift(a * b);
+                }else if(Operator[i] === '/'){
+                    const a = stack.shift();
+                    const b = stack.shift();
+
+                    stack.unshift(a / b);
+                }else if(Operator[i] === '+'){
+                    const a = stack.shift();
+                    const b = stack.shift();
+
+                    stack.unshift(a + b);
+                    console.log(Operator[i]);
+                }else{
+                    const a = stack.shift();
+                    const b = stack.shift();
+
+                    stack.unshift(a - b);
+                }
+            }
+        }
+        console.log(stack);
+        this.input = stack.pop();
     }
+  }
 }
 </script>
 
